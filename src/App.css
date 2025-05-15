@@ -1,6 +1,5 @@
 * {
   color: white;
-  
 }
 
 span {
@@ -34,18 +33,62 @@ button {
   width: 25%;
   height: 9%;
   cursor: pointer;
-  
 }
 
-
-.hero-section {
+.hero-container {
   width: 60vw;
   height: 80vh;
-  /* border: 2px solid white; */
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+
+
+.resume-div {
+  background-color: white;
+  width: 28vw;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.resume-div > * {
+  font-size: 0.8rem;
+  color: black;
+}
+
+
+.info-div {
+  
+  width: 40vw;
+  border: 0.3rem solid silver;
+  height: 68vh;
+  padding: 1rem;
+}
+
+
+.title-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.previous-button,.next-button {
+  width: 5vw;
+}
+
+
+input {
+  color: black;
 }

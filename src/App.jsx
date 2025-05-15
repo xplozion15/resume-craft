@@ -1,21 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./index.css";
+import { HeroSection } from "./components/heroSection.jsx";
+import { useState } from "react";
+import { InfoSection } from "./components/infoSection.jsx";
+import { ResumeSection } from "./components/resumeSection.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   return (
     <>
-        <p className="logo">Resume<span>Craft</span></p>
-
-        <div className="hero-section">
-            <h1>Resume<span>Craft</span>: Your Resume, Done Right – Fast and Easy.</h1>
-            <p className="description-paragraph">Create a standout resume effortlessly, with a simple and smooth process that saves you time and lets you focus on what matters most—landing your dream job!</p>
-            <button>GET STARTED</button>
-        </div>
+      <p className="logo">
+        Resume<span>Craft</span>
+      </p>
+      {buttonClicked ? <div className="main-container">
+            <InfoSection/>
+            <ResumeSection/>
+      </div> : <div className="hero-container">
+        <HeroSection onButtonClick={()=>setButtonClicked(true)}/>
+      </div>}
     </>
   );
 }

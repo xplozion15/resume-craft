@@ -122,7 +122,7 @@ function InfoSection() {
 
                             <div className="form-element-div">
                                 <label htmlFor="degreeCollege">College name</label>
-                                <input type="text" name="degreeCollege" value={education[currentDegreeIndex].degreeCollege} />
+                                <input type="text" name="degreeCollege" value={education[currentDegreeIndex].degreeCollege}  onChange={onEducationChangeHandler}/>
                             </div>
 
                             <div className="form-element-div">

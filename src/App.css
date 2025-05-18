@@ -70,10 +70,11 @@ button {
 
 .info-div {
   
-  width: 40vw;
+  width: 50vw;
   border: 0.3rem solid silver;
-  height: 68vh;
+  height: 75vh;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 
@@ -92,3 +93,5 @@ button {
 input {
   color: black;
 }
+
+

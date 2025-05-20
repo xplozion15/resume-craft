@@ -1,4 +1,4 @@
-function HeroSection({onButtonClick}) {
+function HeroSection({ onButtonClick }) {
   return (
     <>
       <h1>
@@ -13,6 +13,5 @@ function HeroSection({onButtonClick}) {
     </>
   );
 }
-
 
 export { HeroSection };

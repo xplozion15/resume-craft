@@ -54,7 +54,6 @@ button {
   padding: 2rem;
 }
 
-
 .resume-div {
   background-color: white;
   width: 28vw;
@@ -67,16 +66,13 @@ button {
   color: black;
 }
 
-
 .info-div {
-  
   width: 50vw;
   border: 0.3rem solid silver;
   height: 75vh;
   padding: 1rem;
   overflow-y: auto;
 }
-
 
 .title-div {
   display: flex;
@@ -85,13 +81,15 @@ button {
   align-items: center;
 }
 
-.previous-button,.next-button {
+.previous-button,
+.next-button {
   width: 5vw;
 }
-
 
 input {
   color: black;
 }
 
-
+textarea {
+  color: black;
+}

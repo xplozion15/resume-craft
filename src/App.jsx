@@ -6,7 +6,6 @@ import { InfoSection } from "./components/infoSection.jsx";
 import { ResumeSection } from "./components/resumeSection.jsx";
 
 function App() {
-  
   const [buttonClicked, setButtonClicked] = useState(false);
 
   return (
@@ -14,12 +13,16 @@ function App() {
       <p className="logo">
         Resume<span>Craft</span>
       </p>
-      {buttonClicked ? <div className="main-container">
-            <InfoSection/>
-            <ResumeSection/>
-      </div> : <div className="hero-container">
-        <HeroSection onButtonClick={()=>setButtonClicked(true)}/>
-      </div>}
+      {buttonClicked ? (
+        <div className="main-container">
+          <InfoSection />
+          <ResumeSection />
+        </div>
+      ) : (
+        <div className="hero-container">
+          <HeroSection onButtonClick={() => setButtonClicked(true)} />
+        </div>
+      )}
     </>
   );
 }

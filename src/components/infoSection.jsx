@@ -141,19 +141,26 @@ function InfoSection() {
         setCurrentJob(updatedJob);
     }
 
+    // function addJobBulletHandlerr() {
+    //     setCurrentJob((prev) => {
+    //         const newDegreeIndex = prev.length;
+    //         const updatedArray = [...prev];
+    //         const bulletPointsArray = updatedArray[currentJobIndex].bulletPoints;
+    //         const updatedBulletPointsArray = [...bulletPointsArray, ""];
+    //         updatedArray[currentJobIndex].bulletPoints = updatedBulletPointsArray;
+    //         console.log(job)
+    //         return (updatedArray)
+
+    //     });
+    // }
+
     function addJobBulletHandler() {
-        setCurrentJob((prev) => {
-            const newDegreeIndex = prev.length;
-
-            const updatedArray = [...prev];
-            const bulletPointsArray = updatedArray[currentJobIndex].bulletPoints;
-            const updatedBulletPointsArray = [...bulletPointsArray, ""];
-            updatedArray[currentJobIndex].bulletPoints = updatedBulletPointsArray;
-
-            console.log(job)
-            return (updatedArray)
-
-        });
+        const updatedArray = structuredClone(job);
+        const bulletPointsArray = updatedArray[currentJobIndex].bulletPoints;
+        const updatedBulletPointsArray = [...bulletPointsArray, ""];
+        updatedArray[currentJobIndex].bulletPoints = updatedBulletPointsArray;
+        setCurrentJob(updatedArray);
+        console.log(job);
     }
 
     function onPersonalInfoChangeHandler(event) {
@@ -373,3 +380,10 @@ function InfoSection() {
 
 
 export { InfoSection };
+
+
+
+
+
+
+

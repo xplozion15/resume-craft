@@ -55,8 +55,9 @@ button {
 }
 
 .resume-div {
+  font-family: "opensans";
   background-color: white;
-  width: 28vw;
+  width: 32vw;
   height: 80vh;
   overflow-y: scroll;
 }
@@ -91,5 +92,25 @@ input {
 }
 
 textarea {
+  color: black;
+}
+
+.resume-intro-container * {
+  padding:1%;
+  color: black;
+  text-align: center;
+}
+
+.contact-info {
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+
+
+.education-container {
+  padding: 5%;
+}
+
+.education-title {
   color: black;
 }

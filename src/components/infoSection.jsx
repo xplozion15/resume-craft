@@ -1,7 +1,30 @@
 import { use, useState } from "react";
 import React from "react";
 
+
+// this object will be updated form the infosection getlateststatesinfo function and then i can export it to other resume component and then use it for preview
+
+let latestStatesInfoObject = {
+        personalInformation: "",
+        educationDetails: "",
+        workExperience:"",
+        projectDetails: "",
+        skillsInformation: "",
+}
+
 function InfoSection() {
+
+    function getLatestStatesInfo() {
+        latestStatesInfoObject.personalInformation = personalInfo;
+        latestStatesInfoObject.educationDetails =  education;
+        latestStatesInfoObject.workExperience = job;
+        latestStatesInfoObject.projectDetails = projects,
+        latestStatesInfoObject.skillsInformation = skills
+
+        console.log(latestStatesInfoObject);
+}
+
+
     const sections = ["intro", "education", "experience", "projects", "skills"];
     const [currentSection, setCurrentSection] = useState(0);
     const [personalInfo, setPersonalInfo] = useState({
@@ -844,7 +867,7 @@ function InfoSection() {
                                 />
                             </div>
 
-                            <button className="save-skills-button">SAVE</button>
+                            <button className="save-skills-button" onClick={getLatestStatesInfo}>SAVE</button>
                         </>
                     ) : null}
                 </div>
@@ -853,4 +876,4 @@ function InfoSection() {
     );
 }
 
-export { InfoSection };
+export { InfoSection , latestStatesInfoObject};

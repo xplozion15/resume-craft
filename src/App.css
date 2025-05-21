@@ -55,7 +55,6 @@ button {
 }
 
 .resume-div {
-
   background-color: white;
   width: 32vw;
   height: 80vh;
@@ -63,7 +62,6 @@ button {
 }
 
 .resume-div > * {
-  
   font-size: 0.8rem;
   color: black;
 }
@@ -97,12 +95,10 @@ textarea {
   color: black;
 }
 
-
 /* for resume  */
 
-
 .resume-intro-container * {
-  padding:1%;
+  padding: 1%;
   color: black;
   text-align: center;
 }
@@ -112,15 +108,17 @@ textarea {
   font-weight: 400;
 }
 
-
-.education-container,.resume-experience-container {
+.education-container,
+.resume-experience-container {
   padding: 1.2%;
 }
 
-.education-title,.experience-title,.resume-project-title,.skills-title-resume {
+.education-title,
+.experience-title,
+.resume-project-title,
+.skills-title-resume {
   color: black;
   font-size: 0.7rem;
-
 }
 
 .name {
@@ -135,30 +133,21 @@ textarea {
   justify-content: space-between;
   gap: 6%;
   font-size: 0.6rem;
-
- 
 }
 
 .education-info-resume {
   color: black;
-
-
-  
 }
-
 
 .degree-name-resume {
   font-style: italic;
- font-weight: lighter;
+  font-weight: lighter;
 }
 
-
-
-
- .eduation-instance-resume-right,.experience-instance-resume-right {
+.eduation-instance-resume-right,
+.experience-instance-resume-right {
   width: 29%;
-} 
-
+}
 
 .experience-top-div {
   display: flex;
@@ -166,7 +155,6 @@ textarea {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .experience-bullets-resume {
   font-style: italic;
@@ -178,7 +166,6 @@ textarea {
   padding: 1%;
 }
 
-
 .experience-resume-text {
   color: black;
   font-size: 0.6rem;
@@ -188,73 +175,61 @@ textarea {
   margin-bottom: 1%;
 }
 
-
 .experience-bullet-list {
   padding-left: 2%;
 }
 
-
-
-.job-role-resume,.college-name {
+.job-role-resume,
+.college-name {
   font-weight: 800;
 }
 
-
-ul,ol {
-  list-style-position:inside;
+ul,
+ol {
+  list-style-position: inside;
 }
-
 
 .resume-projects-container {
   padding: 1%;
 }
 
-
 .project-info-text-resume {
-  color:black;
+  color: black;
   font-style: italic;
   font-size: 0.6rem;
-  
-} 
+}
 
 .project-li-resume {
   color: black;
-   padding-left: 2%;
-    font-size: 0.6rem;
+  padding-left: 2%;
+  font-size: 0.6rem;
 }
 
 .project-info-text-resume > span {
   color: black;
   font-weight: 600;
   font-style: normal;
-   font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .resume-project-instance {
   padding: 1%;
-  
 }
-
 
 .skills-resume-container {
   padding-left: 1%;
 }
 
-
-
-.resume-skill-text  {
-  color:black;
+.resume-skill-text {
+  color: black;
   font-size: 0.6rem;
 }
-
 
 .main-skill-resume-text {
   font-weight: 600;
   font-size: 0.6rem;
-  color:black;
-
+  color: black;
 }
-
 
 .resume-skill-instance {
   padding: 0.6%;

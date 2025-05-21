@@ -16,7 +16,7 @@ function InfoSection() {
             degreeNumber: 0,
             degreeName: "xyz",
             degreeLocation: "xyz",
-            degreeCollege: "xyz",
+            degreeCollege: "xyz", 
             degreeStartDate: "xyz",
             degreeEndDate: "xyz",
         },
@@ -688,10 +688,10 @@ function InfoSection() {
 
                     {currentSection === 3 ? (
                         <>
-                            <button className="prev-project-button" onClick={onPrevProjectClick}>prev project</button>
-                            <button className="next-project-button" onClick={onNextProjectClick}>next project</button>
-                            <button className="add-project-button" onClick={onAddProjectClick}>add project</button>
-                            <button className="delete-project-button" onClick={onDeleteProjectClick}>del proj</button>
+                            {currentProjectIndex !== 0 && <button className="prev-project-button" onClick={onPrevProjectClick}>prev project</button>}
+                            {currentProjectIndex < projects.length - 1 && <button className="next-project-button" onClick={onNextProjectClick}>next project</button>}
+                            {projects.length - 1 === currentProjectIndex && <button className="add-project-button" onClick={onAddProjectClick}>add project</button>}
+                            {projects.length !== 1 && <button className="delete-project-button" onClick={onDeleteProjectClick}>del proj</button>}
 
                             <p className="project-number-heading">Project number {currentProjectIndex}</p>
 

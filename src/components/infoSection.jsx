@@ -2,178 +2,16 @@ import { use, useState } from "react";
 import React from "react";
 
 
-// this object will be updated form the infosection getlateststatesinfo function and then i can export it to other resume component and then use it for preview
-
-let latestStatesInfoObject = {
-        personalInformation: "",
-        educationDetails: "",
-        workExperience:"",
-        projectDetails: "",
-        skillsInformation: "",
-}
-
-function InfoSection() {
-
-    function getLatestStatesInfo() {
-        latestStatesInfoObject.personalInformation = personalInfo;
-        latestStatesInfoObject.educationDetails =  education;
-        latestStatesInfoObject.workExperience = job;
-        latestStatesInfoObject.projectDetails = projects,
-        latestStatesInfoObject.skillsInformation = skills
-
-        console.log(latestStatesInfoObject);
-}
-
+function InfoSection({personalInfo,setPersonalInfo,education, setCurrentEducation,job,setCurrentJob,projects,setProjects,skills,setSkills}) {
 
     const sections = ["intro", "education", "experience", "projects", "skills"];
     const [currentSection, setCurrentSection] = useState(0);
-    const [personalInfo, setPersonalInfo] = useState({
-        fullName: "Orange Cat",
-        phoneNumber: "00070707070",
-        linkedIn: "orangecatto15",
-        github: "orangecatcodes",
-    });
     const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
-    const [education, setCurrentEducation] = useState([
-        {
-            degreeNumber: 0,
-            degreeName: "xyz",
-            degreeLocation: "xyz",
-            degreeCollege: "xyz", 
-            degreeStartDate: "xyz",
-            degreeEndDate: "xyz",
-        },
-        {
-            degreeNumber: 1,
-            degreeName: "new",
-            degreeLocation: "newwwwwwz",
-            degreeCollege: "xyz",
-            degreeStartDate: "xyz",
-            degreeEndDate: "xyz",
-        },
-    ]);
-
     const [currentJobIndex, setCurrentJobIndex] = useState(0);
-    const [job, setCurrentJob] = useState([
-        {
-            jobNumber: 0,
-            jobRole: "Software Engineer Intern",
-            jobCompany: "ZypherSoft Pvt Ltd",
-            jobPlace: "Hybrid",
-            jobStartDate: "January 2024",
-            jobEndDate: "July 2024",
-            bulletPoints: [
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Built internal tools using Node.js and Express to automate reporting tasks.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Contributed to code reviews and participated in daily Agile stand-ups.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Wrote unit tests with Jest to ensure reliability and reduce bugs in production.",
-                },
-            ],
-        },
-
-        {
-            jobNumber: 1,
-            jobRole: "Junior Full Stack Developer",
-            jobCompany: "BrightPixel Technologies",
-            jobPlace: "On-site",
-            jobStartDate: "August 2024",
-            jobEndDate: "Present",
-            bulletPoints: [
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Implemented new features across the stack using React, Node.js, and PostgreSQL.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Worked closely with product designers to improve user workflows.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Maintained deployment pipelines and resolved production issues promptly.",
-                },
-            ],
-        },
-
-        {
-            jobNumber: 2,
-            jobRole: "Frontend Developer Intern",
-            jobCompany: "TechNova Solutions",
-            jobPlace: "Remote",
-            jobStartDate: "June 2023",
-            jobEndDate: "December 2023",
-            bulletPoints: [
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Developed and maintained responsive UI components using React.js.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Improved page load times by 30% through performance optimization techniques.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Collaborated with backend engineers to integrate RESTful APIs seamlessly.",
-                },
-            ],
-        },
-    ]);
-
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-    const [projects, setProjects] = useState([
-        {
-            projectNumber: 0,
-            projectId: self.crypto.randomUUID(),
-            projectName: "DevDeck",
-            techStack: "Node.js, Express, React, MongoDB, Docker",
-            bulletPoints: [
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Built a developer-focused dashboard to track GitHub stats, pull requests, and activity feed using GitHub API.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Implemented secure authentication with JWT and integrated real-time notifications using Socket.io.",
-                },
-            ],
-            startDate: "January 2024",
-            endDate: "March 2024",
-        },
-        {
-            projectNumber: 1,
-            projectId: self.crypto.randomUUID(),
-            projectName: "TaskHive",
-            techStack: "Node.js, Express, React, PostgreSQL, Prisma, Redis",
-            bulletPoints: [
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Designed and implemented a Trello-like productivity app with drag-and-drop tasks and team collaboration.",
-                },
-                {
-                    id: self.crypto.randomUUID(),
-                    data: "Used Redis for caching frequently accessed data and Prisma ORM for clean database access patterns.",
-                },
-            ],
-            startDate: "April 2024",
-            endDate: "May 2024",
-        },
-    ]);
+    
 
-    const [skills, setSkills] = useState(
-        {
-            languages: "Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R",
-            frameworks: "React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI",
-            developerTools: "Git, Docker, TravisCI, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse",
-            libraries: "pandas, NumPy, Matplotlib",
-
-        },
-    );
+    
 
     function onSkillsChange(event) {
         const originalObject = skills;
@@ -444,6 +282,17 @@ function InfoSection() {
                                     onChange={onPersonalInfoChangeHandler}
                                 />
                             </div>
+
+                            <div className="form-element-div">
+                                <label htmlFor="email">Email id?</label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    value={personalInfo.email}
+                                    onChange={onPersonalInfoChangeHandler}
+                                />
+                            </div>
+
 
                             <div className="form-element-div">
                                 <label htmlFor="linkedin">LinkedIn</label>
@@ -867,7 +716,7 @@ function InfoSection() {
                                 />
                             </div>
 
-                            <button className="save-skills-button" onClick={getLatestStatesInfo}>SAVE</button>
+                            <button className="save-skills-button">SAVE</button>
                         </>
                     ) : null}
                 </div>
@@ -876,4 +725,4 @@ function InfoSection() {
     );
 }
 
-export { InfoSection , latestStatesInfoObject};
+export { InfoSection};

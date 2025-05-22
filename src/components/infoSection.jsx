@@ -1,5 +1,7 @@
 import { use, useState } from "react";
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight, faTrashCan, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 
 function InfoSection({
   personalInfo,
@@ -240,34 +242,39 @@ function InfoSection({
         <div className="title-div">
           <p className="current-section-title">{sections[currentSection]}</p>
           <div className="buttons-div">
-            {currentSection !== 0 && (
-              <button
-                className="previous-button"
-                onClick={() => {
-                  setCurrentSection(currentSection - 1);
-                }}
-              >
-                Previous
-              </button>
-            )}
+            <div className="previous-button-div">
+              {currentSection !== 0 && (
 
-            {currentSection < sections.length - 1 && (
-              <button
-                className="next-button"
-                onClick={() => {
-                  setCurrentSection(currentSection + 1);
-                }}
-              >
-                Next
-              </button>
-            )}
+                <button
+                  className="previous-button"
+                  onClick={() => {
+                    setCurrentSection(currentSection - 1);
+                  }}
+                >
+                  Previous
+                </button>
+              )}
+            </div>
+
+            <div className="next-button-div">
+              {currentSection < sections.length - 1 && (
+                <button
+                  className="next-button"
+                  onClick={() => {
+                    setCurrentSection(currentSection + 1);
+                  }}
+                >
+                  Next
+                </button>
+              )}
+            </div>
           </div>
         </div>
         <div className="intro-form">
           {currentSection === 0 ? (
             <>
               <div className="intro-form-container">
-                <div className="form-element-div form-element-intro-div" >
+                <div className="form-element-div form-element-intro-div">
                   <label htmlFor="full-name">Full name?</label>
                   <input
                     type="text"
@@ -289,7 +296,7 @@ function InfoSection({
                   />
                 </div>
 
-                <div className="form-element-div form-element-intro-div" >
+                <div className="form-element-div form-element-intro-div">
                   <label htmlFor="email">Email id?</label>
                   <input
                     type="text"
@@ -322,108 +329,100 @@ function InfoSection({
                   />
                 </div>
               </div>
-
-
             </>
           ) : null}
 
           {currentSection === 1 ? (
             <>
               <div className="education-navigation-div">
-                {currentDegreeIndex === education.length - 1 &&
-                  currentDegreeIndex < 2 && (
-                    <button
-                      className="add-degree degree-navigation-buttons"
-                      onClick={onEducationPlusClick}
-                    >
-                      +
-                    </button>
+
+                {currentDegreeIndex === education.length - 1 && education.length < 3 && (
+                  <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-degree degree-navigation-buttons" onClick={onEducationPlusClick} />
+                )}
+
+
+                <div className="education-button-div">
+                  {currentDegreeIndex !== 0 && (
+                    <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-degree degree-navigation-buttons"
+                      onClick={onBackDegreeButton} />
                   )}
-                {currentDegreeIndex !== 0 && (
-                  <button
-                    className="prev-degree degree-navigation-buttons"
-                    onClick={onBackDegreeButton}
-                  >
-                    back
-                  </button>
-                )}
-                {currentDegreeIndex !== education.length - 1 && (
-                  <button
-                    className="next-degree degree-navigation-buttons"
-                    onClick={onNextDegreeButton}
-                  >
-                    next
-                  </button>
-                )}
-                {education.length > 1 && (
-                  <button
-                    className="delete-degree degree-navigation-buttons"
-                    onClick={deleteDegreeHandler}
-                  >
-                    delete
-                  </button>
-                )}
+                </div>
+
+                <div className="education-button-div">
+                  {currentDegreeIndex !== education.length - 1 && (
+                    <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-degree degree-navigation-buttons" onClick={onNextDegreeButton} />
+                  )}
+                </div>
+
+                <div className="education-button-div">
+                  {education.length > 1 && (
+                    <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-degree degree-navigation-buttons"
+                      onClick={deleteDegreeHandler} />
+                  )}
+                </div>
+
               </div>
 
-              <p className="degree-number-title">Degree number {education[currentDegreeIndex].degreeNumber}</p>
+              <p className="degree-number-title">
+                Degree number {education[currentDegreeIndex].degreeNumber}
+              </p>
 
               <div className="education-form-container">
                 <div className="form-element-div form-element-education-div">
-                <label htmlFor="degreeCollege">College name</label>
-                <input
-                  type="text"
-                  name="degreeCollege"
-                  className="form-element-education-input"
-                  value={education[currentDegreeIndex].degreeCollege}
-                  onChange={onEducationChangeHandler}
-                />
-              </div>
+                  <label htmlFor="degreeCollege">College name</label>
+                  <input
+                    type="text"
+                    name="degreeCollege"
+                    className="form-element-education-input"
+                    value={education[currentDegreeIndex].degreeCollege}
+                    onChange={onEducationChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-education-div">
-                <label htmlFor="degreeName">Degree name?</label>
-                <input
-                  type="text"
-                  name="degreeName"
-                  className="form-element-education-input"
-                  value={education[currentDegreeIndex].degreeName}
-                  onChange={onEducationChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-education-div">
+                  <label htmlFor="degreeName">Degree name?</label>
+                  <input
+                    type="text"
+                    name="degreeName"
+                    className="form-element-education-input"
+                    value={education[currentDegreeIndex].degreeName}
+                    onChange={onEducationChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-education-div">
-                <label htmlFor="degreeLocation">Location</label>
-                <input
-                  type="text"
-                  name="degreeLocation"
-                  className="form-element-education-input"
-                  value={education[currentDegreeIndex].degreeLocation}
-                  onChange={onEducationChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-education-div">
+                  <label htmlFor="degreeLocation">Location</label>
+                  <input
+                    type="text"
+                    name="degreeLocation"
+                    className="form-element-education-input"
+                    value={education[currentDegreeIndex].degreeLocation}
+                    onChange={onEducationChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-education-div">
-                <label htmlFor="degreeStartDate">degree start date?</label>
-                <input
-                  type="text"
-                  name="degreeStartDate"
-                  className="form-element-education-input"
-                  value={education[currentDegreeIndex].degreeStartDate}
-                  onChange={onEducationChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-education-div">
+                  <label htmlFor="degreeStartDate">degree start date?</label>
+                  <input
+                    type="text"
+                    name="degreeStartDate"
+                    className="form-element-education-input"
+                    value={education[currentDegreeIndex].degreeStartDate}
+                    onChange={onEducationChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-education-div">
-                <label htmlFor="degreeEndDate">Degree end date?</label>
-                <input
-                  type="text"
-                  name="degreeEndDate"
-                  className="form-element-education-input"
-                  value={education[currentDegreeIndex].degreeEndDate}
-                  onChange={onEducationChangeHandler}
-                />
+                <div className="form-element-div form-element-education-div">
+                  <label htmlFor="degreeEndDate">Degree end date?</label>
+                  <input
+                    type="text"
+                    name="degreeEndDate"
+                    className="form-element-education-input"
+                    value={education[currentDegreeIndex].degreeEndDate}
+                    onChange={onEducationChangeHandler}
+                  />
+                </div>
               </div>
-              </div>
-
             </>
           ) : null}
 
@@ -431,92 +430,77 @@ function InfoSection({
             <>
               <div className="job-navigation-div">
                 {currentJobIndex === job.length - 1 && currentJobIndex < 3 && (
-                  <button
-                    className="add-job job-navigation-buttons"
-                    onClick={onJobPlusClick}
-                  >
-                    +
-                  </button>
-                )}
+                  <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-job job-navigation-buttons" onClick={onJobPlusClick} />)}
+
                 {currentJobIndex !== 0 && (
-                  <button
-                    className="prev-job job-navigation-buttons"
-                    onClick={onBackJobButton}
-                  >
-                    back
-                  </button>
-                )}
+                  <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-job job-navigation-buttons"
+                    onClick={onBackJobButton} />)}
+
+
                 {currentJobIndex !== job.length - 1 && (
-                  <button
-                    className="next-job job-navigation-buttons"
-                    onClick={onNextJobButton}
-                  >
-                    next
-                  </button>
-                )}
+                  <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-job job-navigation-buttons"
+                    onClick={onNextJobButton} />)}
+
                 {job.length > 1 && (
-                  <button
-                    className="delete-job job-navigation-buttons"
-                    onClick={deleteJobHandler}
-                  >
-                    delete
-                  </button>
-                )}
+                  <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-job job-navigation-buttons"
+                    onClick={deleteJobHandler} />)}
+
               </div>
 
-              <p className="job-number-title">Job number {job[currentJobIndex].jobNumber}</p>
+              <p className="job-number-title">
+                Job number {job[currentJobIndex].jobNumber}
+              </p>
 
               <div className="form-element-experience-container">
                 <div className="form-element-div form-element-div-experience">
-                <label htmlFor="jobRole">Job Role</label>
-                <input
-                  type="text"
-                  name="jobRole"
-                  value={job[currentJobIndex].jobRole}
-                  onChange={onJobChangeHandler}
-                />
-              </div>
+                  <label htmlFor="jobRole">Job Role</label>
+                  <input
+                    type="text"
+                    name="jobRole"
+                    value={job[currentJobIndex].jobRole}
+                    onChange={onJobChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-experience">
-                <label htmlFor="jobCompany">Job Company</label>
-                <input
-                  type="text"
-                  name="jobCompany"
-                  value={job[currentJobIndex].jobCompany}
-                  onChange={onJobChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-experience">
+                  <label htmlFor="jobCompany">Job Company</label>
+                  <input
+                    type="text"
+                    name="jobCompany"
+                    value={job[currentJobIndex].jobCompany}
+                    onChange={onJobChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-experience">
-                <label htmlFor="jobPlace">Job place</label>
-                <input
-                  type="text"
-                  name="jobPlace"
-                  value={job[currentJobIndex].jobPlace}
-                  onChange={onJobChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-experience">
+                  <label htmlFor="jobPlace">Job place</label>
+                  <input
+                    type="text"
+                    name="jobPlace"
+                    value={job[currentJobIndex].jobPlace}
+                    onChange={onJobChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-experience">
-                <label htmlFor="jobStartDate">Job start date</label>
-                <input
-                  type="text"
-                  name="jobStartDate"
-                  value={job[currentJobIndex].jobStartDate}
-                  onChange={onJobChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-experience">
+                  <label htmlFor="jobStartDate">Job start date</label>
+                  <input
+                    type="text"
+                    name="jobStartDate"
+                    value={job[currentJobIndex].jobStartDate}
+                    onChange={onJobChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-experience">
-                <label htmlFor="jobEndDate">Job end date</label>
-                <input
-                  type="text"
-                  name="jobEndDate"
-                  value={job[currentJobIndex].jobEndDate}
-                  onChange={onJobChangeHandler}
-                />
-              </div>
-
+                <div className="form-element-div form-element-div-experience">
+                  <label htmlFor="jobEndDate">Job end date</label>
+                  <input
+                    type="text"
+                    name="jobEndDate"
+                    value={job[currentJobIndex].jobEndDate}
+                    onChange={onJobChangeHandler}
+                  />
+                </div>
               </div>
 
               <div className="bullet-points-container">
@@ -548,8 +532,8 @@ function InfoSection({
                             setCurrentJob(updatedArray);
                           }}
                         />
-                        <button
-                          className="removeJobBullet"
+
+                        <FontAwesomeIcon icon={faTrashCan} size="2xl" className="removeJobBullet"
                           onClick={() => {
                             let updatedArray = structuredClone(job);
                             let filteredBulletPoints = updatedArray[
@@ -561,55 +545,34 @@ function InfoSection({
                             updatedArray[currentJobIndex].bulletPoints =
                               filteredBulletPoints;
                             setCurrentJob(updatedArray);
-                          }}
-                        >
-                          del
-                        </button>
+                          }} />
+
                       </div>
                     </React.Fragment>
                   );
                 })}
-          
               </div>
-
-
             </>
           ) : null}
 
           {currentSection === 3 ? (
             <>
               {currentProjectIndex !== 0 && (
-                <button
-                  className="prev-project-button"
-                  onClick={onPrevProjectClick}
-                >
-                  prev project
-                </button>
-              )}
+                <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-project-button project-buttons"
+                  onClick={onPrevProjectClick} />)}
+
+
               {currentProjectIndex < projects.length - 1 && (
-                <button
-                  className="next-project-button"
-                  onClick={onNextProjectClick}
-                >
-                  next project
-                </button>
-              )}
-              {projects.length - 1 === currentProjectIndex && (
-                <button
-                  className="add-project-button"
-                  onClick={onAddProjectClick}
-                >
-                  add project
-                </button>
-              )}
+                <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-project-button project-buttons"
+                  onClick={onNextProjectClick} />)}
+
+              {projects.length - 1 === currentProjectIndex && projects.length < 3 && (
+                <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-project-button project-buttons"
+                  onClick={onAddProjectClick} />)}
+
               {projects.length !== 1 && (
-                <button
-                  className="delete-project-button"
-                  onClick={onDeleteProjectClick}
-                >
-                  del proj
-                </button>
-              )}
+                <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-project-button project-buttons"
+                  onClick={onDeleteProjectClick} />)}
 
               <p className="project-number-heading">
                 Project number {currentProjectIndex}
@@ -617,43 +580,43 @@ function InfoSection({
 
               <div className="project-elements-container">
                 <div className="form-element-div form-element-div-project">
-                <label htmlFor="projectName">Project Name?</label>
-                <input
-                  type="text"
-                  name="projectName"
-                  value={projects[currentProjectIndex].projectName}
-                  onChange={onProjectChangeHandler}
-                />
-              </div>
+                  <label htmlFor="projectName">Project Name?</label>
+                  <input
+                    type="text"
+                    name="projectName"
+                    value={projects[currentProjectIndex].projectName}
+                    onChange={onProjectChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-project">
-                <label htmlFor="techStack">Project tech stack?</label>
-                <textarea
-                  name="techStack"
-                  value={projects[currentProjectIndex].techStack}
-                  onChange={onProjectChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-project">
+                  <label htmlFor="techStack">Project tech stack?</label>
+                  <textarea
+                    name="techStack"
+                    value={projects[currentProjectIndex].techStack}
+                    onChange={onProjectChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-project">
-                <label htmlFor="startDate">Project start date?</label>
-                <input
-                  type="text"
-                  name="startDate"
-                  value={projects[currentProjectIndex].startDate}
-                  onChange={onProjectChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-project">
+                  <label htmlFor="startDate">Project start date?</label>
+                  <input
+                    type="text"
+                    name="startDate"
+                    value={projects[currentProjectIndex].startDate}
+                    onChange={onProjectChangeHandler}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-project">
-                <label htmlFor="endDate">Project end date?</label>
-                <input
-                  type="text"
-                  name="endDate"
-                  value={projects[currentProjectIndex].endDate}
-                  onChange={onProjectChangeHandler}
-                />
-              </div>
+                <div className="form-element-div form-element-div-project">
+                  <label htmlFor="endDate">Project end date?</label>
+                  <input
+                    type="text"
+                    name="endDate"
+                    value={projects[currentProjectIndex].endDate}
+                    onChange={onProjectChangeHandler}
+                  />
+                </div>
               </div>
 
               <div className="bullet-points-container-projects">
@@ -686,8 +649,7 @@ function InfoSection({
                               setProjects(updatedArray);
                             }}
                           />
-                          <button
-                            className="removeProjectBullet"
+                          <FontAwesomeIcon icon={faTrashCan} size="2xl" className="removeProjectBullet"
                             onClick={() => {
                               let updatedArray = structuredClone(projects);
                               let filteredBulletPoints = updatedArray[
@@ -700,18 +662,13 @@ function InfoSection({
                                 filteredBulletPoints;
 
                               setProjects(updatedArray);
-                            }}
-                          >
-                            Remove
-                          </button>
+                            }} />
                         </div>
                       </React.Fragment>
                     );
                   },
                 )}
               </div>
-
-
             </>
           ) : null}
 
@@ -719,41 +676,39 @@ function InfoSection({
             <>
               <div className="skills-element-container">
                 <div className="form-element-div form-element-div-skills">
-                <label htmlFor="languages">Languages?</label>
-                <textarea
-                  name="languages"
-                  value={skills.languages}
-                  onChange={onSkillsChange}
-                />
-              </div>
+                  <label htmlFor="languages">Languages?</label>
+                  <textarea
+                    name="languages"
+                    value={skills.languages}
+                    onChange={onSkillsChange}
+                  />
+                </div>
 
-              <div className="form-element-div form-element-div-skills">
-                <label htmlFor="frameworks">Frameworks?</label>
-                <textarea
-                  name="frameworks"
-                  value={skills.frameworks}
-                  onChange={onSkillsChange}
-                />
-              </div>
+                <div className="form-element-div form-element-div-skills">
+                  <label htmlFor="frameworks">Frameworks?</label>
+                  <textarea
+                    name="frameworks"
+                    value={skills.frameworks}
+                    onChange={onSkillsChange}
+                  />
+                </div>
 
-              <div className="form-element-div  form-element-div-skills">
-                <label htmlFor="developerTools">Developer tools?</label>
-                <textarea
-                  name="developerTools"
-                  value={skills.developerTools}
-                  onChange={onSkillsChange}
-                />
-              </div>
-              <div className="form-element-div form-element-div-skills">
-                <label htmlFor="">Libraries?</label>
-                <textarea
-                  name="libraries"
-                  value={skills.libraries}
-                  onChange={onSkillsChange}
-                />
-              </div>
-
-
+                <div className="form-element-div  form-element-div-skills">
+                  <label htmlFor="developerTools">Developer tools?</label>
+                  <textarea
+                    name="developerTools"
+                    value={skills.developerTools}
+                    onChange={onSkillsChange}
+                  />
+                </div>
+                <div className="form-element-div form-element-div-skills">
+                  <label htmlFor="">Libraries?</label>
+                  <textarea
+                    name="libraries"
+                    value={skills.libraries}
+                    onChange={onSkillsChange}
+                  />
+                </div>
               </div>
             </>
           ) : null}

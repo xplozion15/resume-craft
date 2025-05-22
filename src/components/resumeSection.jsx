@@ -1,7 +1,6 @@
 function ResumeSection({ personalInfo, education, job, projects, skills }) {
   return (
     <>
-    
       <div className="resume-div">
         <div className="resume-intro-container">
           <h2 className="name">{personalInfo.fullName}</h2>

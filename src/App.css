@@ -30,6 +30,7 @@ button {
   color: black;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  border: 2px solid white;
   width: 25%;
   height: 9%;
   cursor: pointer;
@@ -55,11 +56,10 @@ button {
 }
 
 .current-section-title {
-  text-transform:uppercase;
+  text-transform: uppercase;
   font-weight: 800;
   font-size: 1.5rem;
 }
-
 
 .intro-form-container {
   display: flex;
@@ -73,11 +73,11 @@ button {
 }
 
 .form-element-intro-div {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    padding-left: 10%;
-    padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-left: 10%;
+  padding-bottom: 5%;
 }
 
 .form-element-intro-input {
@@ -85,11 +85,9 @@ button {
   width: 17vw;
 }
 
-
 label {
   font-weight: 600;
 }
-
 
 .resume-div {
   background-color: white;
@@ -104,13 +102,13 @@ label {
 }
 
 .info-div {
-  
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   width: 50vw;
   border: 5px solid whitesmoke;
   height: 70vh;
   padding: 1rem;
   overflow-y: auto;
-
 }
 
 .title-div {
@@ -133,6 +131,18 @@ textarea {
   color: black;
 }
 
+.buttons-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding-right: 5%;
+}
+
+.previous-button-div,
+.next-button-div {
+  width: 5vw;
+}
 
 .education-form-container {
   display: flex;
@@ -148,16 +158,16 @@ textarea {
   width: 40%;
   padding-left: 5%;
   padding-bottom: 5%;
-
 }
-
 
 .form-element-education-input {
   width: 20vw;
   height: 5vh;
 }
 
-.degree-number-title,.job-number-title,.project-number-heading {
+.degree-number-title,
+.job-number-title,
+.project-number-heading {
   font-weight: 600;
   font-size: 1.5rem;
   padding: 2%;
@@ -181,26 +191,22 @@ textarea {
 
 .form-element-div-experience > input {
   height: 4.5vh;
+  
 }
-
-
 
 .bullet-points-container {
   padding-left: 5%;
 }
 
-
 .job-bullet-div {
   padding: 0;
   margin: 0;
+  padding-bottom: 1%;
 }
-.job-bullet-div > input  {
-    height: 5vh;
-    width: 70%;
-} 
-
-
-
+.job-bullet-div > input {
+  height: 5vh;
+  width: 70%;
+}
 
 .project-elements-container {
   display: flex;
@@ -208,26 +214,23 @@ textarea {
   gap: 7%;
 }
 
-
 .form-element-div-project {
   display: flex;
   flex-direction: column;
   width: 40%;
   padding-left: 2%;
   padding-bottom: 2%;
-
 }
 
-
 .form-element-div-project > input {
-    height: 5vh;
-    width: 20vw;
+  height: 5vh;
+  width: 20vw;
 }
 
 .form-element-div-project > textarea {
   height: 5vh;
-    width: 20vw;
-    resize:vertical;
+  width: 20vw;
+  resize: vertical;
 }
 
 .project-bullet-div {
@@ -243,8 +246,6 @@ textarea {
   margin-left: 2%;
 }
 
-
-
 .bullet-points-container-projects {
   padding: 0;
   margin: 0;
@@ -257,20 +258,66 @@ textarea {
   gap: 7%;
 }
 
-
-
 .form-element-div-skills {
   display: flex;
   flex-direction: column;
   padding-bottom: 5%;
-
 }
-
 
 .form-element-div-skills > textarea {
   width: 20vw;
   height: 9vh;
 }
+
+.education-navigation-div {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.degree-navigation-buttons {
+  padding-left: 2%;
+}
+
+.job-navigation-buttons {
+  padding-left: 2%;
+}
+
+.project-buttons {
+  padding-left: 2%;
+}
+
+
+.removeJobBullet {
+  padding-left: 1%;
+}
+
+.addJobBulletButton {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.job-bullet-div > input {
+  width: 85%;
+}
+
+.removeProjectBullet {
+  padding-left: 1%;
+
+}
+
+.project-bullet-div {
+  margin-bottom: 1%;
+}
+.project-bullet-div > input {
+  width: 90%;
+}
+
+.addProjectBulletButton{
+  margin-bottom: 1.5%;
+}
+
+
 /* for resume  */
 
 .resume-intro-container * {

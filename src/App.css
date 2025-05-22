@@ -54,6 +54,43 @@ button {
   padding: 2rem;
 }
 
+.current-section-title {
+  text-transform:uppercase;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+
+.intro-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: 2px solid white; */
+  justify-content: flex-start;
+  gap: 5%;
+  padding: 5%;
+  padding-top: 10%;
+}
+
+.form-element-intro-div {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding-left: 10%;
+    padding-bottom: 5%;
+}
+
+.form-element-intro-input {
+  height: 5vh;
+  width: 17vw;
+}
+
+
+label {
+  font-weight: 600;
+}
+
+
 .resume-div {
   background-color: white;
   width: 32vw;
@@ -67,12 +104,13 @@ button {
 }
 
 .info-div {
+  
   width: 50vw;
-  /* border: 0.3rem solid silver; */
-  border: 6px ridge white;
-  height: 75vh;
+  border: 5px solid whitesmoke;
+  height: 70vh;
   padding: 1rem;
   overflow-y: auto;
+
 }
 
 .title-div {
@@ -95,6 +133,144 @@ textarea {
   color: black;
 }
 
+
+.education-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 2px solid white; */
+  padding-top: 1%;
+  gap: 6%;
+}
+
+.form-element-education-div {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+
+}
+
+
+.form-element-education-input {
+  width: 20vw;
+  height: 5vh;
+}
+
+.degree-number-title,.job-number-title,.project-number-heading {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 2%;
+}
+
+.form-element-experience-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 7%;
+  padding-top: 1%;
+  padding-left: 5%;
+}
+
+.form-element-div-experience {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-bottom: 3%;
+}
+
+.form-element-div-experience > input {
+  height: 4.5vh;
+}
+
+
+
+.bullet-points-container {
+  padding-left: 5%;
+}
+
+
+.job-bullet-div {
+  padding: 0;
+  margin: 0;
+}
+.job-bullet-div > input  {
+    height: 5vh;
+    width: 70%;
+} 
+
+
+
+
+.project-elements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7%;
+}
+
+
+.form-element-div-project {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-left: 2%;
+  padding-bottom: 2%;
+
+}
+
+
+.form-element-div-project > input {
+    height: 5vh;
+    width: 20vw;
+}
+
+.form-element-div-project > textarea {
+  height: 5vh;
+    width: 20vw;
+    resize:vertical;
+}
+
+.project-bullet-div {
+  padding-left: 2%;
+}
+
+.project-bullet-div > input {
+  height: 4.5vh;
+  width: 70%;
+}
+
+.addProjectBulletButton {
+  margin-left: 2%;
+}
+
+
+
+.bullet-points-container-projects {
+  padding: 0;
+  margin: 0;
+}
+
+.skills-element-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 12%;
+  gap: 7%;
+}
+
+
+
+.form-element-div-skills {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5%;
+
+}
+
+
+.form-element-div-skills > textarea {
+  width: 20vw;
+  height: 9vh;
+}
 /* for resume  */
 
 .resume-intro-container * {
@@ -104,7 +280,7 @@ textarea {
 }
 
 .contact-info {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   font-weight: 400;
 }
 

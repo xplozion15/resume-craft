@@ -266,57 +266,64 @@ function InfoSection({
         <div className="intro-form">
           {currentSection === 0 ? (
             <>
-              <div className="form-element-div">
-                <label htmlFor="full-name">Full name?</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={personalInfo.fullName}
-                  onChange={onPersonalInfoChangeHandler}
-                />
+              <div className="intro-form-container">
+                <div className="form-element-div form-element-intro-div" >
+                  <label htmlFor="full-name">Full name?</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    className="form-element-intro-input"
+                    value={personalInfo.fullName}
+                    onChange={onPersonalInfoChangeHandler}
+                  />
+                </div>
+
+                <div className="form-element-div form-element-intro-div">
+                  <label htmlFor="phone-number">Phone number?</label>
+                  <input
+                    type="number"
+                    className="form-element-intro-input"
+                    name="phoneNumber"
+                    value={personalInfo.phoneNumber}
+                    onChange={onPersonalInfoChangeHandler}
+                  />
+                </div>
+
+                <div className="form-element-div form-element-intro-div" >
+                  <label htmlFor="email">Email id?</label>
+                  <input
+                    type="text"
+                    className="form-element-intro-input"
+                    name="email"
+                    value={personalInfo.email}
+                    onChange={onPersonalInfoChangeHandler}
+                  />
+                </div>
+
+                <div className="form-element-div form-element-intro-div">
+                  <label htmlFor="linkedin">LinkedIn</label>
+                  <input
+                    type="text"
+                    className="form-element-intro-input"
+                    name="linkedIn"
+                    value={personalInfo.linkedIn}
+                    onChange={onPersonalInfoChangeHandler}
+                  />
+                </div>
+
+                <div className="form-element-div form-element-intro-div">
+                  <label htmlFor="github">GitHub</label>
+                  <input
+                    type="text"
+                    className="form-element-intro-input"
+                    name="github"
+                    value={personalInfo.github}
+                    onChange={onPersonalInfoChangeHandler}
+                  />
+                </div>
               </div>
 
-              <div className="form-element-div">
-                <label htmlFor="phone-number">Phone number?</label>
-                <input
-                  type="number"
-                  name="phoneNumber"
-                  value={personalInfo.phoneNumber}
-                  onChange={onPersonalInfoChangeHandler}
-                />
-              </div>
 
-              <div className="form-element-div">
-                <label htmlFor="email">Email id?</label>
-                <input
-                  type="text"
-                  name="email"
-                  value={personalInfo.email}
-                  onChange={onPersonalInfoChangeHandler}
-                />
-              </div>
-
-              <div className="form-element-div">
-                <label htmlFor="linkedin">LinkedIn</label>
-                <input
-                  type="text"
-                  name="linkedIn"
-                  value={personalInfo.linkedIn}
-                  onChange={onPersonalInfoChangeHandler}
-                />
-              </div>
-
-              <div className="form-element-div">
-                <label htmlFor="github">GitHub</label>
-                <input
-                  type="text"
-                  name="github"
-                  value={personalInfo.github}
-                  onChange={onPersonalInfoChangeHandler}
-                />
-              </div>
-
-              <button className="intro-save-button">SAVE</button>
             </>
           ) : null}
 
@@ -358,59 +365,65 @@ function InfoSection({
                 )}
               </div>
 
-              <p>Degree number {education[currentDegreeIndex].degreeNumber}</p>
+              <p className="degree-number-title">Degree number {education[currentDegreeIndex].degreeNumber}</p>
 
-              <div className="form-element-div">
+              <div className="education-form-container">
+                <div className="form-element-div form-element-education-div">
                 <label htmlFor="degreeCollege">College name</label>
                 <input
                   type="text"
                   name="degreeCollege"
+                  className="form-element-education-input"
                   value={education[currentDegreeIndex].degreeCollege}
                   onChange={onEducationChangeHandler}
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-education-div">
                 <label htmlFor="degreeName">Degree name?</label>
                 <input
                   type="text"
                   name="degreeName"
+                  className="form-element-education-input"
                   value={education[currentDegreeIndex].degreeName}
                   onChange={onEducationChangeHandler}
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-education-div">
                 <label htmlFor="degreeLocation">Location</label>
                 <input
                   type="text"
                   name="degreeLocation"
+                  className="form-element-education-input"
                   value={education[currentDegreeIndex].degreeLocation}
                   onChange={onEducationChangeHandler}
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-education-div">
                 <label htmlFor="degreeStartDate">degree start date?</label>
                 <input
                   type="text"
                   name="degreeStartDate"
+                  className="form-element-education-input"
                   value={education[currentDegreeIndex].degreeStartDate}
                   onChange={onEducationChangeHandler}
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-education-div">
                 <label htmlFor="degreeEndDate">Degree end date?</label>
                 <input
                   type="text"
                   name="degreeEndDate"
+                  className="form-element-education-input"
                   value={education[currentDegreeIndex].degreeEndDate}
                   onChange={onEducationChangeHandler}
                 />
               </div>
+              </div>
 
-              <button className="eduation-save-button">SAVE</button>
             </>
           ) : null}
 
@@ -451,9 +464,10 @@ function InfoSection({
                 )}
               </div>
 
-              <p>Job number {job[currentJobIndex].jobNumber}</p>
+              <p className="job-number-title">Job number {job[currentJobIndex].jobNumber}</p>
 
-              <div className="form-element-div">
+              <div className="form-element-experience-container">
+                <div className="form-element-div form-element-div-experience">
                 <label htmlFor="jobRole">Job Role</label>
                 <input
                   type="text"
@@ -463,7 +477,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-experience">
                 <label htmlFor="jobCompany">Job Company</label>
                 <input
                   type="text"
@@ -473,7 +487,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-experience">
                 <label htmlFor="jobPlace">Job place</label>
                 <input
                   type="text"
@@ -483,7 +497,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-experience">
                 <label htmlFor="jobStartDate">Job start date</label>
                 <input
                   type="text"
@@ -493,7 +507,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-experience">
                 <label htmlFor="jobEndDate">Job end date</label>
                 <input
                   type="text"
@@ -501,6 +515,8 @@ function InfoSection({
                   value={job[currentJobIndex].jobEndDate}
                   onChange={onJobChangeHandler}
                 />
+              </div>
+
               </div>
 
               <div className="bullet-points-container">
@@ -547,15 +563,16 @@ function InfoSection({
                             setCurrentJob(updatedArray);
                           }}
                         >
-                          Remove
+                          del
                         </button>
                       </div>
                     </React.Fragment>
                   );
                 })}
+          
               </div>
 
-              <button className="experienceSaveButton">SAVE</button>
+
             </>
           ) : null}
 
@@ -598,7 +615,8 @@ function InfoSection({
                 Project number {currentProjectIndex}
               </p>
 
-              <div className="form-element-div">
+              <div className="project-elements-container">
+                <div className="form-element-div form-element-div-project">
                 <label htmlFor="projectName">Project Name?</label>
                 <input
                   type="text"
@@ -608,7 +626,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-project">
                 <label htmlFor="techStack">Project tech stack?</label>
                 <textarea
                   name="techStack"
@@ -617,7 +635,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-project">
                 <label htmlFor="startDate">Project start date?</label>
                 <input
                   type="text"
@@ -627,7 +645,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-project">
                 <label htmlFor="endDate">Project end date?</label>
                 <input
                   type="text"
@@ -635,6 +653,7 @@ function InfoSection({
                   value={projects[currentProjectIndex].endDate}
                   onChange={onProjectChangeHandler}
                 />
+              </div>
               </div>
 
               <div className="bullet-points-container-projects">
@@ -692,13 +711,14 @@ function InfoSection({
                 )}
               </div>
 
-              <button className="project-save-button">SAVE</button>
+
             </>
           ) : null}
 
           {currentSection === 4 ? (
             <>
-              <div className="form-element-div">
+              <div className="skills-element-container">
+                <div className="form-element-div form-element-div-skills">
                 <label htmlFor="languages">Languages?</label>
                 <textarea
                   name="languages"
@@ -707,7 +727,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-skills">
                 <label htmlFor="frameworks">Frameworks?</label>
                 <textarea
                   name="frameworks"
@@ -716,7 +736,7 @@ function InfoSection({
                 />
               </div>
 
-              <div className="form-element-div">
+              <div className="form-element-div  form-element-div-skills">
                 <label htmlFor="developerTools">Developer tools?</label>
                 <textarea
                   name="developerTools"
@@ -724,7 +744,7 @@ function InfoSection({
                   onChange={onSkillsChange}
                 />
               </div>
-              <div className="form-element-div">
+              <div className="form-element-div form-element-div-skills">
                 <label htmlFor="">Libraries?</label>
                 <textarea
                   name="libraries"
@@ -733,7 +753,8 @@ function InfoSection({
                 />
               </div>
 
-              <button className="save-skills-button">SAVE</button>
+
+              </div>
             </>
           ) : null}
         </div>

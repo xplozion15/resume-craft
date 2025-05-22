@@ -341,25 +341,25 @@ function InfoSection({
                 )}
 
 
-                <div className="education-button-div">
+                
                   {currentDegreeIndex !== 0 && (
                     <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-degree degree-navigation-buttons"
                       onClick={onBackDegreeButton} />
                   )}
-                </div>
+                
 
-                <div className="education-button-div">
+                
                   {currentDegreeIndex !== education.length - 1 && (
                     <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-degree degree-navigation-buttons" onClick={onNextDegreeButton} />
                   )}
-                </div>
+               
 
-                <div className="education-button-div">
+                
                   {education.length > 1 && (
                     <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-degree degree-navigation-buttons"
                       onClick={deleteDegreeHandler} />
                   )}
-                </div>
+               
 
               </div>
 

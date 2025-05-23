@@ -1,7 +1,7 @@
 A resume builder web app built with React.
 
 ## Live Demo
- [resumecraft123.netlify.app](https://resumecraft123.netlify.app/)
+ [resumecraft-lime.vercel.app](resumecraft-lime.vercel.app)
 
 ## What I Learned
 

@@ -11,13 +11,14 @@ function App() {
   const [personalInfo, setPersonalInfo] = useState({
     fullName: "Orange Cat",
     phoneNumber: "00070707070",
-    email: "jake@su.edu",
+    email: "orangecat@gmail.com",
     linkedIn: "orangecatto15",
     github: "orangecatcodes",
   });
 
   const [education, setCurrentEducation] = useState([
     {
+      id: self.crypto.randomUUID(),
       degreeNumber: 0,
       degreeName: "Bachelor of Technology in Computer Science",
       degreeLocation: "Mumbai",
@@ -26,6 +27,7 @@ function App() {
       degreeEndDate: "May 2021",
     },
     {
+      id: self.crypto.randomUUID(),
       degreeNumber: 1,
       degreeName: "Master of Technology in Computer Science",
       degreeLocation: "Mumbai",
@@ -37,6 +39,7 @@ function App() {
 
   const [job, setCurrentJob] = useState([
     {
+      id: self.crypto.randomUUID(),
       jobNumber: 0,
       jobRole: "Software Engineer Intern",
       jobCompany: "ZypherSoft Pvt Ltd",
@@ -60,6 +63,7 @@ function App() {
     },
 
     {
+      id: self.crypto.randomUUID(),
       jobNumber: 1,
       jobRole: "Junior Full Stack Developer",
       jobCompany: "BrightPixel Technologies",
@@ -83,6 +87,7 @@ function App() {
     },
 
     {
+      id: self.crypto.randomUUID(),
       jobNumber: 2,
       jobRole: "Frontend Developer Intern",
       jobCompany: "TechNova Solutions",
@@ -126,6 +131,7 @@ function App() {
       endDate: "March 2024",
     },
     {
+      id: self.crypto.randomUUID(),
       projectNumber: 1,
       projectId: self.crypto.randomUUID(),
       projectName: "TaskHive",

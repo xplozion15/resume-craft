@@ -1,6 +1,3 @@
-
-
-
 function HeroSection({ onButtonClick }) {
   return (
     <>

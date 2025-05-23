@@ -91,14 +91,13 @@ label {
 }
 
 .resume-div {
-
   background-color: white;
   width: 32vw;
   height: 80vh;
   overflow-y: scroll;
 }
 
-.resume-div>* {
+.resume-div > * {
   font-size: 0.8rem;
   color: black;
 }
@@ -191,9 +190,8 @@ textarea {
   padding-bottom: 3%;
 }
 
-.form-element-div-experience>input {
+.form-element-div-experience > input {
   height: 4.5vh;
-
 }
 
 .bullet-points-container {
@@ -206,7 +204,7 @@ textarea {
   padding-bottom: 1%;
 }
 
-.job-bullet-div>input {
+.job-bullet-div > input {
   height: 5vh;
   width: 70%;
 }
@@ -225,12 +223,12 @@ textarea {
   padding-bottom: 2%;
 }
 
-.form-element-div-project>input {
+.form-element-div-project > input {
   height: 5vh;
   width: 20vw;
 }
 
-.form-element-div-project>textarea {
+.form-element-div-project > textarea {
   height: 5vh;
   width: 20vw;
   resize: vertical;
@@ -240,7 +238,7 @@ textarea {
   padding-left: 2%;
 }
 
-.project-bullet-div>input {
+.project-bullet-div > input {
   height: 4.5vh;
   width: 70%;
 }
@@ -267,7 +265,7 @@ textarea {
   padding-bottom: 5%;
 }
 
-.form-element-div-skills>textarea {
+.form-element-div-skills > textarea {
   width: 20vw;
   height: 9vh;
 }
@@ -275,7 +273,6 @@ textarea {
 .education-navigation-div {
   display: flex;
   flex-direction: row;
-
 }
 
 .degree-navigation-buttons {
@@ -290,7 +287,6 @@ textarea {
   padding-left: 2%;
 }
 
-
 .removeJobBullet {
   padding-left: 1%;
 }
@@ -300,29 +296,25 @@ textarea {
   margin-bottom: 1%;
 }
 
-.job-bullet-div>input {
+.job-bullet-div > input {
   width: 85%;
 }
 
 .removeProjectBullet {
   padding-left: 1%;
-
 }
 
 .project-bullet-div {
   margin-bottom: 1%;
 }
 
-.project-bullet-div>input {
+.project-bullet-div > input {
   width: 90%;
 }
 
 .addProjectBulletButton {
   margin-bottom: 1.5%;
 }
-
-
-
 
 /* for resume  */
 
@@ -434,7 +426,7 @@ ol {
   font-size: 0.6rem;
 }
 
-.project-info-text-resume>span {
+.project-info-text-resume > span {
   color: black;
   font-weight: 600;
   font-style: normal;
@@ -468,7 +460,6 @@ ol {
   padding-left: 2%;
 }
 
-
 .download-btn {
   top: -8%;
   right: 2%;
@@ -480,8 +471,7 @@ ol {
   background-color: skyblue;
   color: white;
   border: none;
-  border-radius: 5px, ;
+  border-radius: 5px;
   width: 12rem;
   height: 3rem;
 }
-

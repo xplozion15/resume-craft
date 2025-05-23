@@ -1,7 +1,12 @@
 import { use, useState } from "react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faTrashCan, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft,
+  faArrowRight,
+  faTrashCan,
+  faSquarePlus,
+} from "@fortawesome/free-solid-svg-icons";
 
 function InfoSection({
   personalInfo,
@@ -45,6 +50,7 @@ function InfoSection({
       return [
         ...prev,
         {
+          id: self.crypto.randomUUID(),
           jobNumber: newDegreeIndex,
           jobRole: "",
           jobCompany: "",
@@ -85,7 +91,7 @@ function InfoSection({
   }
 
   function onProjectChangeHandler(event) {
-    let updatedProjects = [...projects];
+    const updatedProjects = structuredClone(projects);
     let updatedObject = { ...updatedProjects[currentProjectIndex] };
     updatedObject[event.target.name] = event.target.value;
     updatedProjects[currentProjectIndex] = updatedObject;
@@ -131,7 +137,8 @@ function InfoSection({
   }
 
   function onJobChangeHandler(event) {
-    let updatedJob = [...job];
+    let updatedJob = structuredClone(job);
+    // let updatedJob = [...job];
     let updatedObject = { ...updatedJob[currentJobIndex] };
     updatedObject[event.target.name] = event.target.value;
     updatedJob[currentJobIndex] = updatedObject;
@@ -182,6 +189,7 @@ function InfoSection({
       return [
         ...prev,
         {
+          id: self.crypto.randomUUID(),
           degreeNumber: newDegreeIndex,
           degreeName: "",
           degreeLocation: "",
@@ -244,7 +252,6 @@ function InfoSection({
           <div className="buttons-div">
             <div className="previous-button-div">
               {currentSection !== 0 && (
-
                 <button
                   className="previous-button"
                   onClick={() => {
@@ -335,32 +342,42 @@ function InfoSection({
           {currentSection === 1 ? (
             <>
               <div className="education-navigation-div">
+                {currentDegreeIndex === education.length - 1 &&
+                  education.length < 3 && (
+                    <FontAwesomeIcon
+                      icon={faSquarePlus}
+                      size="2xl"
+                      className="add-degree degree-navigation-buttons"
+                      onClick={onEducationPlusClick}
+                    />
+                  )}
 
-                {currentDegreeIndex === education.length - 1 && education.length < 3 && (
-                  <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-degree degree-navigation-buttons" onClick={onEducationPlusClick} />
+                {currentDegreeIndex !== 0 && (
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    size="2xl"
+                    className="prev-degree degree-navigation-buttons"
+                    onClick={onBackDegreeButton}
+                  />
                 )}
 
+                {currentDegreeIndex !== education.length - 1 && (
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    size="2xl"
+                    className="next-degree degree-navigation-buttons"
+                    onClick={onNextDegreeButton}
+                  />
+                )}
 
-                
-                  {currentDegreeIndex !== 0 && (
-                    <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-degree degree-navigation-buttons"
-                      onClick={onBackDegreeButton} />
-                  )}
-                
-
-                
-                  {currentDegreeIndex !== education.length - 1 && (
-                    <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-degree degree-navigation-buttons" onClick={onNextDegreeButton} />
-                  )}
-               
-
-                
-                  {education.length > 1 && (
-                    <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-degree degree-navigation-buttons"
-                      onClick={deleteDegreeHandler} />
-                  )}
-               
-
+                {education.length > 1 && (
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    size="2xl"
+                    className="delete-degree degree-navigation-buttons"
+                    onClick={deleteDegreeHandler}
+                  />
+                )}
               </div>
 
               <p className="degree-number-title">
@@ -430,21 +447,40 @@ function InfoSection({
             <>
               <div className="job-navigation-div">
                 {currentJobIndex === job.length - 1 && currentJobIndex < 3 && (
-                  <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-job job-navigation-buttons" onClick={onJobPlusClick} />)}
+                  <FontAwesomeIcon
+                    icon={faSquarePlus}
+                    size="2xl"
+                    className="add-job job-navigation-buttons"
+                    onClick={onJobPlusClick}
+                  />
+                )}
 
                 {currentJobIndex !== 0 && (
-                  <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-job job-navigation-buttons"
-                    onClick={onBackJobButton} />)}
-
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    size="2xl"
+                    className="prev-job job-navigation-buttons"
+                    onClick={onBackJobButton}
+                  />
+                )}
 
                 {currentJobIndex !== job.length - 1 && (
-                  <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-job job-navigation-buttons"
-                    onClick={onNextJobButton} />)}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    size="2xl"
+                    className="next-job job-navigation-buttons"
+                    onClick={onNextJobButton}
+                  />
+                )}
 
                 {job.length > 1 && (
-                  <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-job job-navigation-buttons"
-                    onClick={deleteJobHandler} />)}
-
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    size="2xl"
+                    className="delete-job job-navigation-buttons"
+                    onClick={deleteJobHandler}
+                  />
+                )}
               </div>
 
               <p className="job-number-title">
@@ -533,7 +569,10 @@ function InfoSection({
                           }}
                         />
 
-                        <FontAwesomeIcon icon={faTrashCan} size="2xl" className="removeJobBullet"
+                        <FontAwesomeIcon
+                          icon={faTrashCan}
+                          size="2xl"
+                          className="removeJobBullet"
                           onClick={() => {
                             let updatedArray = structuredClone(job);
                             let filteredBulletPoints = updatedArray[
@@ -545,8 +584,8 @@ function InfoSection({
                             updatedArray[currentJobIndex].bulletPoints =
                               filteredBulletPoints;
                             setCurrentJob(updatedArray);
-                          }} />
-
+                          }}
+                        />
                       </div>
                     </React.Fragment>
                   );
@@ -557,25 +596,42 @@ function InfoSection({
 
           {currentSection === 3 ? (
             <>
+              {projects.length - 1 === currentProjectIndex &&
+                projects.length < 3 && (
+                  <FontAwesomeIcon
+                    icon={faSquarePlus}
+                    size="2xl"
+                    className="add-project-button project-buttons"
+                    onClick={onAddProjectClick}
+                  />
+                )}
 
-               {projects.length - 1 === currentProjectIndex && projects.length < 3 && (
-                <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-project-button project-buttons"
-                  onClick={onAddProjectClick} />)}
-                  
               {currentProjectIndex !== 0 && (
-                <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-project-button project-buttons"
-                  onClick={onPrevProjectClick} />)}
-
+                <FontAwesomeIcon
+                  icon={faArrowLeft}
+                  size="2xl"
+                  className="prev-project-button project-buttons"
+                  onClick={onPrevProjectClick}
+                />
+              )}
 
               {currentProjectIndex < projects.length - 1 && (
-                <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-project-button project-buttons"
-                  onClick={onNextProjectClick} />)}
-
-             
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  size="2xl"
+                  className="next-project-button project-buttons"
+                  onClick={onNextProjectClick}
+                />
+              )}
 
               {projects.length !== 1 && (
-                <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-project-button project-buttons"
-                  onClick={onDeleteProjectClick} />)}
+                <FontAwesomeIcon
+                  icon={faTrashCan}
+                  size="2xl"
+                  className="delete-project-button project-buttons"
+                  onClick={onDeleteProjectClick}
+                />
+              )}
 
               <p className="project-number-heading">
                 Project number {currentProjectIndex}
@@ -652,7 +708,10 @@ function InfoSection({
                               setProjects(updatedArray);
                             }}
                           />
-                          <FontAwesomeIcon icon={faTrashCan} size="2xl" className="removeProjectBullet"
+                          <FontAwesomeIcon
+                            icon={faTrashCan}
+                            size="2xl"
+                            className="removeProjectBullet"
                             onClick={() => {
                               let updatedArray = structuredClone(projects);
                               let filteredBulletPoints = updatedArray[
@@ -665,7 +724,8 @@ function InfoSection({
                                 filteredBulletPoints;
 
                               setProjects(updatedArray);
-                            }} />
+                            }}
+                          />
                         </div>
                       </React.Fragment>
                     );

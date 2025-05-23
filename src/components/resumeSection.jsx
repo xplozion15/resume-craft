@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import html2pdf from "html2pdf.js";
 
-
 function ResumeSection({ personalInfo, education, job, projects, skills }) {
   const resumeRef = useRef();
 
@@ -25,7 +24,7 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
         orientation: "portrait",
         compress: true,
       },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+      pagebreak: { mode: ["avoid-all", "css", "legacy"] },
     };
 
     html2pdf().set(opt).from(element).save();
@@ -33,16 +32,11 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
 
   return (
     <>
-      <button
-          className="download-btn"
-          onClick={handleDownload}
-        >
-          Download PDF
-        </button>
-        
-    
+      <button className="download-btn" onClick={handleDownload}>
+        Download PDF
+      </button>
+
       <div className="resume-div" ref={resumeRef}>
-        
         <div className="resume-intro-container">
           <h2 className="name">{personalInfo.fullName}</h2>
           <p className="contact-info">
@@ -57,26 +51,24 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
 
           {education.map((element) => {
             return (
-              <>
-                <div className="education-instance-resume">
-                  <div className="eduation-instance-resume-left">
-                    <p className="education-info-resume college-name">
-                      {element.degreeCollege}
-                    </p>
-                    <p className="education-info-resume degree-name-resume">
-                      {element.degreeName}
-                    </p>
-                  </div>
-                  <div className="eduation-instance-resume-right">
-                    <p className="education-info-resume">
-                      {element.degreeLocation}
-                    </p>
-                    <p className="education-info-resume">
-                      {element.degreeStartDate}-{element.degreeEndDate}
-                    </p>
-                  </div>
+              <div className="education-instance-resume" key={element.id}>
+                <div className="eduation-instance-resume-left">
+                  <p className="education-info-resume college-name">
+                    {element.degreeCollege}
+                  </p>
+                  <p className="education-info-resume degree-name-resume">
+                    {element.degreeName}
+                  </p>
                 </div>
-              </>
+                <div className="eduation-instance-resume-right">
+                  <p className="education-info-resume">
+                    {element.degreeLocation}
+                  </p>
+                  <p className="education-info-resume">
+                    {element.degreeStartDate}-{element.degreeEndDate}
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>
@@ -87,43 +79,34 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
 
           {job.map((element) => {
             return (
-              <>
-                <div className="experience-instance-resume">
-                  <div className="experience-top-div">
-                    <div className="experience-instance-resume-left">
-                      <p className="experience-resume-text job-role-resume">
-                        {element.jobRole}
-                      </p>
-                      <p className="experience-resume-text">
-                        {element.jobCompany}
-                      </p>
-                    </div>
-                    <div className="experience-instance-resume-right">
-                      <p className="experience-resume-text">
-                        {element.jobStartDate}-{element.jobEndDate}
-                      </p>
-                      <p
-                        experience-resume-text
-                        className="experience-resume-text"
-                      >
-                        {element.jobPlace}
-                      </p>
-                    </div>
+              <div className="experience-instance-resume" key={element.id}>
+                <div className="experience-top-div">
+                  <div className="experience-instance-resume-left">
+                    <p className="experience-resume-text job-role-resume">
+                      {element.jobRole}
+                    </p>
+                    <p className="experience-resume-text">
+                      {element.jobCompany}
+                    </p>
                   </div>
-
-                  <ul className="experience-bullet-list">
-                    {element.bulletPoints.map((bullet) => {
-                      return (
-                        <>
-                          <li className="experience-bullets-resume">
-                            {bullet.data}
-                          </li>
-                        </>
-                      );
-                    })}
-                  </ul>
+                  <div className="experience-instance-resume-right">
+                    <p className="experience-resume-text">
+                      {element.jobStartDate}-{element.jobEndDate}
+                    </p>
+                    <p className="experience-resume-text">{element.jobPlace}</p>
+                  </div>
                 </div>
-              </>
+
+                <ul className="experience-bullet-list">
+                  {element.bulletPoints.map((bullet) => {
+                    return (
+                      <li className="experience-bullets-resume" key={bullet.id}>
+                        {bullet.data}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             );
           })}
         </div>
@@ -134,22 +117,20 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
 
           {projects.map((project) => {
             return (
-              <>
-                <div className="resume-project-instance">
-                  <p className="project-info-text-resume">
-                    <span>{project.projectName}</span> | {project.techStack}
-                  </p>
-                  <ul className="project-bullets-container-resume">
-                    {project.bulletPoints.map((bullet) => {
-                      return (
-                        <>
-                          <li className="project-li-resume">{bullet.data}</li>
-                        </>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </>
+              <div className="resume-project-instance" key={project.projectId}>
+                <p className="project-info-text-resume">
+                  <span>{project.projectName}</span> | {project.techStack}
+                </p>
+                <ul className="project-bullets-container-resume">
+                  {project.bulletPoints.map((bullet) => {
+                    return (
+                      <li className="project-li-resume" key={bullet.id}>
+                        {bullet.data}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             );
           })}
         </div>

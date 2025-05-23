@@ -1,9 +1,6 @@
-# ResumeCraft 
-
 A resume builder web app built with React.
 
-## 🚀 Live Demo
-
+## Live Demo
  [resumecraft123.netlify.app](https://resumecraft123.netlify.app/)
 
 ## What I Learned

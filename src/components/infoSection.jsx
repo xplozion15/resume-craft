@@ -656,26 +656,6 @@ function InfoSection({
                     onChange={onProjectChangeHandler}
                   />
                 </div>
-
-                <div className="form-element-div form-element-div-project">
-                  <label htmlFor="startDate">Project start date?</label>
-                  <input
-                    type="text"
-                    name="startDate"
-                    value={projects[currentProjectIndex].startDate}
-                    onChange={onProjectChangeHandler}
-                  />
-                </div>
-
-                <div className="form-element-div form-element-div-project">
-                  <label htmlFor="endDate">Project end date?</label>
-                  <input
-                    type="text"
-                    name="endDate"
-                    value={projects[currentProjectIndex].endDate}
-                    onChange={onProjectChangeHandler}
-                  />
-                </div>
               </div>
 
               <div className="bullet-points-container-projects">

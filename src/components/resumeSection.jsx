@@ -1,7 +1,48 @@
+import { useRef } from "react";
+import html2pdf from "html2pdf.js";
+
+
 function ResumeSection({ personalInfo, education, job, projects, skills }) {
+  const resumeRef = useRef();
+
+  const handleDownload = () => {
+    const element = resumeRef.current;
+    const opt = {
+      margin: [10, 25, 10, 0], // Your current margin settings
+      filename: "resume.pdf",
+      image: { type: "jpeg", quality: 1 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        width: element.scrollWidth,
+        height: element.scrollHeight,
+        windowWidth: 1400, // Decreased from 1200 to make PDF narrower
+        windowHeight: 1600,
+      },
+      jsPDF: {
+        unit: "pt",
+        format: [500, 700], // Custom PDF size [width, height] in points - narrower than A4
+        orientation: "portrait",
+        compress: true,
+      },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+    };
+
+    html2pdf().set(opt).from(element).save();
+  };
+
   return (
     <>
-      <div className="resume-div">
+      <button
+          className="download-btn"
+          onClick={handleDownload}
+        >
+          Download PDF
+        </button>
+        
+    
+      <div className="resume-div" ref={resumeRef}>
+        
         <div className="resume-intro-container">
           <h2 className="name">{personalInfo.fullName}</h2>
           <p className="contact-info">
@@ -98,7 +139,7 @@ function ResumeSection({ personalInfo, education, job, projects, skills }) {
                   <p className="project-info-text-resume">
                     <span>{project.projectName}</span> | {project.techStack}
                   </p>
-                  <ul>
+                  <ul className="project-bullets-container-resume">
                     {project.bulletPoints.map((bullet) => {
                       return (
                         <>

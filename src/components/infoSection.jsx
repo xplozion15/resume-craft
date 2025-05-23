@@ -557,6 +557,11 @@ function InfoSection({
 
           {currentSection === 3 ? (
             <>
+
+               {projects.length - 1 === currentProjectIndex && projects.length < 3 && (
+                <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-project-button project-buttons"
+                  onClick={onAddProjectClick} />)}
+                  
               {currentProjectIndex !== 0 && (
                 <FontAwesomeIcon icon={faArrowLeft} size="2xl" className="prev-project-button project-buttons"
                   onClick={onPrevProjectClick} />)}
@@ -566,9 +571,7 @@ function InfoSection({
                 <FontAwesomeIcon icon={faArrowRight} size="2xl" className="next-project-button project-buttons"
                   onClick={onNextProjectClick} />)}
 
-              {projects.length - 1 === currentProjectIndex && projects.length < 3 && (
-                <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="add-project-button project-buttons"
-                  onClick={onAddProjectClick} />)}
+             
 
               {projects.length !== 1 && (
                 <FontAwesomeIcon icon={faTrashCan} size="2xl" className="delete-project-button project-buttons"
